@@ -10,7 +10,7 @@ namespace _239AGameOfThrees
             int.TryParse(Console.ReadLine(), out number);
 
             // While the number is not 1
-            while (number != 1)
+            while (number > 1)
             {
                 // If the number is divisable by 3
                 int n = number % 3;
