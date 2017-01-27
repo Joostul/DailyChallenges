@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _239AGameOfThrees
 {
@@ -10,39 +6,26 @@ namespace _239AGameOfThrees
     {
         static void Main(string[] args)
         {
-            int Number;
-            int.TryParse(Console.ReadLine(), out Number);
+            int number;
+            int.TryParse(Console.ReadLine(), out number);
 
             // While the number is not 1
-            while (Number != 1)
+            while (number != 1)
             {
                 // If the number is divisable by 3
-                if(Number % 3 != 0)
+                int n = number % 3;
+                if(n != 0)
                 {
-                    // Is not divisable by 3, should check if adding or subtracting one is better
-
-                    // If subtracting one makes it divisable by 3
-                    if ((Number - 1) % 3 == 0)
-                    {
-                        Console.WriteLine(Number + " - 1");
-                        Number = (Number - 1) / 3;
-                    }
-                    // If adding one makes it divisable by 3
-                    else if ((Number + 1) % 3 == 0)
-                    {
-                        Console.WriteLine(Number + " + 1");
-                        Number = (Number + 1) / 3;
-                    }
-                } else
-                {
-                    // Then devide it by 3
-                    Console.WriteLine(Number);
-                    Number = Number / 3;
+                    // If the result is 2 then add one, if it is 1 then remove one
+                    n = (n == 1 ? -1 : 1);
                 }
-            }
 
-            // Puzzle is solved: 1 is left after deviding by three
-            Console.WriteLine(Number);
+                // Execute the action
+                Console.WriteLine(number + (n == 0 ? "": " " + n));
+                number += n;
+                number = number / 3;
+            }
+            Console.WriteLine(number);
 
             Console.ReadLine();
         }
